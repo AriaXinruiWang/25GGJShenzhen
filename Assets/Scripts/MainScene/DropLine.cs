@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class DropLine : MonoBehaviour
 {
-    public bool canBePress;
-    public KeyCode keyToPress;
+    private bool canBePress = false;
 
+    public KeyCode keyToPress;
     public float perfectAdjust;
-    public GameObject hitEffect,perfectEffect;
 
     void Update()
     {
