@@ -9,7 +9,9 @@ public class NoteGenerate : MonoBehaviour
 
     public KeyCode keyToPress;
     public float perfectAdjust;  // 可以设置调整的值
-    public float bpm;
+
+    private string timeFileName = "beats_ts";  // 文本文件名
+    private List<float> timePoints = new List<float>();  // 存储从文本文件读取的时间点
 
     private float timeElapsed = 0f;
     private int lineCount = 0;
@@ -17,20 +19,18 @@ public class NoteGenerate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        ReadTimePointsFromFile();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float beatInterval = 60f / bpm;
-
         timeElapsed += Time.deltaTime;
 
-        if (timeElapsed >= beatInterval)
+        if (timePoints.Count > 0 && timeElapsed >= timePoints[0])
         {
             GenerateLine();
-            timeElapsed = 0f;
+            timePoints.RemoveAt(0);
         }
     }
 
@@ -58,5 +58,25 @@ public class NoteGenerate : MonoBehaviour
         dropLineScript.perfectAdjust = perfectAdjust;  // 设置完美调整值
 
         lineCount++;
+    }
+
+    void ReadTimePointsFromFile()
+    {
+        TextAsset timeFile = Resources.Load<TextAsset>(timeFileName);
+        if (timeFile != null)
+        {
+            string[] lines = timeFile.text.Split('\n');
+            foreach (string line in lines)
+            {
+                if (float.TryParse(line, out float timePoint))
+                {
+                    timePoints.Add(timePoint);
+                }
+            }
+        }
+        else
+        {
+            Debug.LogError("Time file not found: " + timeFileName);
+        }
     }
 }
