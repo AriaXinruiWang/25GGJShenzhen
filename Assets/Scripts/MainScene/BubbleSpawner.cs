@@ -1,97 +1,77 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class BubbleSpawner : MonoBehaviour
 {
-    public GameObject bubblePrefab; // 气泡预制体
-    public float spawnInterval = 1f; // 生成间隔
-    public float bubbleSpeed = 2f; // 气泡移动速度
-    public float spawnHeightRange = 2f; // 生成高度范围
-    public float bubbleLifetime = 5f; // 气泡存在时间（避免无限移动）
+    public GameObject[] bubblePrefabs; // 气泡预制体数组
+    public float spawnInterval = 1f; // 生成气泡的时间间隔
+    public float minSpeed = 1f; // 气泡最小移动速度
+    public float maxSpeed = 3f; // 气泡最大移动速度
 
-    private void Start()
+    private Camera mainCamera;
+    public AudioClip destroySound;
+    public Image MouseUI;
+
+    void Start()
     {
-        StartCoroutine(SpawnBubbles());
+        mainCamera = Camera.main;
+        StartCoroutine(StartSpawningAfterDelay(1f)); // 10秒后开始生成气泡
+    }
+
+    IEnumerator StartSpawningAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay); // 等待10秒
+        StartCoroutine(SpawnBubbles()); // 开始生成气泡
     }
 
     IEnumerator SpawnBubbles()
     {
         while (true)
         {
-            // 随机选择左边或右边生成
-            bool spawnFromLeft = Random.Range(0, 2) == 0;
-
-            // 计算生成位置
-            float spawnY = Random.Range(-spawnHeightRange, spawnHeightRange);
-            Vector3 spawnPosition = spawnFromLeft ? 
-                new Vector3(-10f, spawnY, 0f) : 
-                new Vector3(10f, spawnY, 0f);
-
-            // 生成气泡
-            GameObject bubble = Instantiate(bubblePrefab, spawnPosition, Quaternion.identity);
-
-            // 设置气泡的移动方向
-            Vector3 moveDirection = spawnFromLeft ? Vector3.right : Vector3.left;
-            StartCoroutine(MoveBubble(bubble, moveDirection));
-
-            // 设置气泡的自动销毁时间
-            Destroy(bubble, bubbleLifetime);
-
-            yield return new WaitForSeconds(spawnInterval);
+            SpawnBubble();
+            yield return new WaitForSeconds(spawnInterval); // 每隔一段时间生成一个气泡
         }
     }
 
-    IEnumerator MoveBubble(GameObject bubble, Vector3 direction)
-    {
-        while (bubble != null)
+    
+    void SpawnBubble()
+    {    if (bubblePrefabs == null || bubblePrefabs.Length == 0)
         {
-            bubble.transform.Translate(direction * bubbleSpeed * Time.deltaTime);
-
-            // 如果气泡移出屏幕，销毁它
-            if (Mathf.Abs(bubble.transform.position.x) > 10f)
-            {
-                Destroy(bubble);
-            }
-
-            yield return null;
+            Debug.LogError("bubblePrefabs 数组为空！无法生成气泡。");
+            return;
         }
+        // 随机选择气泡种类
+        GameObject bubblePrefab = bubblePrefabs[Random.Range(0, bubblePrefabs.Length)];
+
+        // 随机选择生成位置（屏幕左侧或右侧）
+        Vector2 spawnPosition = GetRandomSpawnPosition();
+        GameObject bubble = Instantiate(bubblePrefab, spawnPosition, Quaternion.identity);
+
+        // 设置气泡的移动方向和速度
+        Vector2 moveDirection = GetMoveDirection(spawnPosition);
+        float speed = Random.Range(minSpeed, maxSpeed);
+        bubble.GetComponent<Rigidbody2D>().velocity = moveDirection * speed;
+
+        // 添加点击事件
+        bubble.AddComponent<BubbleClickHandler>();
     }
 
-    private void Update()
-    {
-        // 检测鼠标点击
-        if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+    Vector2 GetRandomSpawnPosition()
+    {   
+        float screenHeight = 2f * mainCamera.orthographicSize;
+        float screenWidth = screenHeight * mainCamera.aspect;
 
-            if (hit.collider != null && hit.collider.CompareTag("Bubble"))
-            {
-                // 获取气泡的 Animator 组件
-                Animator bubbleAnimator = hit.collider.GetComponent<Animator>();
+        // 随机选择左侧或右侧
+        float x = Random.Range(0, 2) == 0 ? -screenWidth / 3 : screenWidth / 3;
+        float y = Random.Range(-screenHeight / 5, screenHeight / 5);
 
-                if (bubbleAnimator != null)
-                {
-                    // 播放气泡破裂动画
-                    bubbleAnimator.SetTrigger("Pop");
-
-                    // 在动画播放完成后销毁气泡
-                    StartCoroutine(DestroyAfterAnimation(hit.collider.gameObject, bubbleAnimator));
-                }
-                else
-                {
-                    // 如果没有 Animator，直接销毁气泡
-                    Destroy(hit.collider.gameObject);
-                }
-            }
-        }
+        return new Vector2(x, y);
     }
 
-    IEnumerator DestroyAfterAnimation(GameObject bubble, Animator animator)
+    Vector2 GetMoveDirection(Vector2 spawnPosition)
     {
-        // 等待动画播放完成
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
-
-        // 销毁气泡
-        Destroy(bubble);
+        // 如果气泡从左侧生成，则向右移动；如果从右侧生成，则向左移动
+        return spawnPosition.x < 0 ? Vector2.right : Vector2.left;
     }
 }

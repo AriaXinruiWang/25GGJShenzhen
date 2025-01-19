@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Activator
   - bubble
+  - BarCollider
+  - MouseUI
   layers:
   - Default
   - TransparentFX

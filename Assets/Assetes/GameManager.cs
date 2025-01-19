@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     public float normalHits;
     public float perfectHits;
     public float missHits;
-    public int maxRemainBubbles = 10;//设置允许的最大泡泡数量   
+    public int maxRemainBubbles = 20;//设置允许的最大泡泡数量   
 
     
     private bool emergencyStop = false;
