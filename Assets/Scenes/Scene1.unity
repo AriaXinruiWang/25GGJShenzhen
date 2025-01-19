@@ -3959,7 +3959,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beatTempo: 129
-  hasStart: 1
+  hasStart: 0
 --- !u!114 &1988770548
 MonoBehaviour:
   m_ObjectHideFlags: 0
