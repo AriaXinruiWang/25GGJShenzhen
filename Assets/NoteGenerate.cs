@@ -16,6 +16,9 @@ public class NoteGenerate : MonoBehaviour
     private float timeElapsed = 0f;
     private int lineCount = 0;
 
+    public string sortingLayerName = "Default"; // 渲染图层名称
+    public int orderInLayer = -2; // 渲染顺序
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +49,8 @@ public class NoteGenerate : MonoBehaviour
         // 添加 SpriteRenderer 组件来显示虚线
         SpriteRenderer spriteRenderer = lineObject.AddComponent<SpriteRenderer>();
         spriteRenderer.sprite = redLineSprite;
-        spriteRenderer.sortingOrder = 1;  // 设置渲染顺序，确保它显示在其他物体上面
+        spriteRenderer.sortingOrder = orderInLayer;  // 设置渲染顺序
+        spriteRenderer.sortingLayerName = sortingLayerName; // 设置渲染图层
 
         // 设置虚线的尺寸和位置
         lineObject.transform.position = new Vector3(0, screenHeight + spriteHeight / 2, 0);  // 设置每条线的垂直位置，确保它完全在屏幕外

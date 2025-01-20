@@ -9,6 +9,8 @@ TagManager:
   - mouth
   - BarCollider
   - MouseUI
+  - bossbubble
+  - ButtomCollider
   layers:
   - Default
   - TransparentFX

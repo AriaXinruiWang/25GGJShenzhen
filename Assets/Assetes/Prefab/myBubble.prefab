@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4264679583793307335}
   - component: {fileID: 5169063056059190129}
   - component: {fileID: 3212857648255206449}
-  - component: {fileID: 1164081549643398198}
   - component: {fileID: 7382666956554700552}
   m_Layer: 0
   m_Name: myBubble5 (2)
@@ -108,32 +107,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1164081549643398198
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 573933075063233797}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.95, y: 6.33}
-    newSize: {x: 5, y: 5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 5, y: 5}
-  m_EdgeRadius: 0
 --- !u!114 &7382666956554700552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,10 +120,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefabs: []
+  BossBubblePrefab: {fileID: 0}
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
   destroySound: {fileID: 0}
+  MouseUI: {fileID: 0}
 --- !u!1 &798861474359987971
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +137,6 @@ GameObject:
   - component: {fileID: 4618688180543629617}
   - component: {fileID: 6032352199423718911}
   - component: {fileID: 5885902125839325033}
-  - component: {fileID: 1963917776000757717}
   - component: {fileID: 8680670992317011454}
   m_Layer: 0
   m_Name: myBubble5 (1)
@@ -259,32 +233,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1963917776000757717
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 798861474359987971}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.55, y: 7.69}
-    newSize: {x: 5, y: 5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 5, y: 5}
-  m_EdgeRadius: 0
 --- !u!114 &8680670992317011454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,10 +246,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefabs: []
+  BossBubblePrefab: {fileID: 0}
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
   destroySound: {fileID: 0}
+  MouseUI: {fileID: 0}
 --- !u!1 &1054055818650833556
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,7 +262,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6971986272064856571}
   - component: {fileID: 5614417314561235094}
-  - component: {fileID: 8959769632975459786}
   - component: {fileID: 4357020843492113775}
   - component: {fileID: 2321941958312631264}
   m_Layer: 0
@@ -389,22 +338,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &8959769632975459786
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1054055818650833556}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 3.9
 --- !u!50 &4357020843492113775
 Rigidbody2D:
   serializedVersion: 4
@@ -439,10 +372,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefabs: []
+  BossBubblePrefab: {fileID: 0}
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
   destroySound: {fileID: 0}
+  MouseUI: {fileID: 0}
 --- !u!1 &1185001182325170737
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,7 +388,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8025140973835079277}
   - component: {fileID: 5112551508823500039}
-  - component: {fileID: 1494637399340321815}
   - component: {fileID: 7668331767118480522}
   - component: {fileID: 8253975256984123825}
   m_Layer: 0
@@ -530,22 +464,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &1494637399340321815
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1185001182325170737}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.5
 --- !u!50 &7668331767118480522
 Rigidbody2D:
   serializedVersion: 4
@@ -580,10 +498,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefabs: []
+  BossBubblePrefab: {fileID: 0}
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
   destroySound: {fileID: 0}
+  MouseUI: {fileID: 0}
 --- !u!1 &4316209023453312199
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,7 +515,6 @@ GameObject:
   - component: {fileID: 4530320908783043438}
   - component: {fileID: 3418092664245349133}
   - component: {fileID: 6690034989635861799}
-  - component: {fileID: 7428780289017554365}
   - component: {fileID: 2584650781047227305}
   m_Layer: 0
   m_Name: myBubble1 (2)
@@ -692,22 +611,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &7428780289017554365
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4316209023453312199}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.5
 --- !u!114 &2584650781047227305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -721,10 +624,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefabs: []
+  BossBubblePrefab: {fileID: 0}
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
   destroySound: {fileID: 0}
+  MouseUI: {fileID: 0}
 --- !u!1 &4390189067741577419
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,7 +640,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2521532945846242367}
   - component: {fileID: 1299519231690360649}
-  - component: {fileID: 8600014903086048477}
   - component: {fileID: 383053631852013011}
   - component: {fileID: 1480766921084933995}
   m_Layer: 0
@@ -812,22 +716,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &8600014903086048477
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4390189067741577419}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.5
 --- !u!50 &383053631852013011
 Rigidbody2D:
   serializedVersion: 4
@@ -862,10 +750,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefabs: []
+  BossBubblePrefab: {fileID: 0}
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
   destroySound: {fileID: 0}
+  MouseUI: {fileID: 0}
 --- !u!1 &5691524188069730827
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,7 +767,6 @@ GameObject:
   - component: {fileID: 8126367557028028391}
   - component: {fileID: 8242356675081852732}
   - component: {fileID: 2814754176587477536}
-  - component: {fileID: 5644114086989671962}
   - component: {fileID: 2115316704877819628}
   m_Layer: 0
   m_Name: myBubble1 (1)
@@ -974,22 +863,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &5644114086989671962
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5691524188069730827}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.5
 --- !u!114 &2115316704877819628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1003,10 +876,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefabs: []
+  BossBubblePrefab: {fileID: 0}
   spawnInterval: 1
   minSpeed: 5
   maxSpeed: 3
   destroySound: {fileID: 0}
+  MouseUI: {fileID: 0}
 --- !u!1 &6102902515378053688
 GameObject:
   m_ObjectHideFlags: 0
@@ -1018,7 +893,6 @@ GameObject:
   - component: {fileID: 4531465137826166512}
   - component: {fileID: 7365181081052068983}
   - component: {fileID: 1386697541441779952}
-  - component: {fileID: 8494205558549158588}
   - component: {fileID: 7057675391506734678}
   m_Layer: 0
   m_Name: myBubble3 (1)
@@ -1115,22 +989,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &8494205558549158588
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6102902515378053688}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.3
 --- !u!114 &7057675391506734678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1144,10 +1002,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefabs: []
+  BossBubblePrefab: {fileID: 0}
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
   destroySound: {fileID: 0}
+  MouseUI: {fileID: 0}
 --- !u!1 &6728081203219913070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,7 +1018,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5683317760343883229}
   - component: {fileID: 1158181483259177001}
-  - component: {fileID: 29970202400699832}
   - component: {fileID: 439109647970746223}
   - component: {fileID: 3119330244844137456}
   m_Layer: 0
@@ -1235,22 +1094,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &29970202400699832
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6728081203219913070}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.5
 --- !u!50 &439109647970746223
 Rigidbody2D:
   serializedVersion: 4
@@ -1285,10 +1128,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefabs: []
+  BossBubblePrefab: {fileID: 0}
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
   destroySound: {fileID: 0}
+  MouseUI: {fileID: 0}
 --- !u!1 &6731319844702547325
 GameObject:
   m_ObjectHideFlags: 0
@@ -1300,7 +1145,6 @@ GameObject:
   - component: {fileID: 6731319844702547324}
   - component: {fileID: 6731319844702547327}
   - component: {fileID: 6731319844702547321}
-  - component: {fileID: 6731319844702547326}
   - component: {fileID: 6731319844702547320}
   m_Layer: 0
   m_Name: myBubble1
@@ -1397,22 +1241,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &6731319844702547326
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6731319844702547325}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.5
 --- !u!114 &6731319844702547320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1426,10 +1254,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefabs: []
+  BossBubblePrefab: {fileID: 0}
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
   destroySound: {fileID: 0}
+  MouseUI: {fileID: 0}
 --- !u!1 &6731319844759195103
 GameObject:
   m_ObjectHideFlags: 0
@@ -1441,7 +1271,6 @@ GameObject:
   - component: {fileID: 6731319844759195102}
   - component: {fileID: 6731319844759195097}
   - component: {fileID: 6731319844759195096}
-  - component: {fileID: 6731319844759195099}
   - component: {fileID: 6731319844759195098}
   m_Layer: 0
   m_Name: myBubble3
@@ -1538,22 +1367,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &6731319844759195099
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6731319844759195103}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.3
 --- !u!114 &6731319844759195098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1567,10 +1380,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefabs: []
+  BossBubblePrefab: {fileID: 0}
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
   destroySound: {fileID: 0}
+  MouseUI: {fileID: 0}
 --- !u!1 &6731319844826228682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,7 +1396,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6731319844826228677}
   - component: {fileID: 6731319844826228676}
-  - component: {fileID: 6731319844826228678}
   - component: {fileID: 6731319844826228679}
   - component: {fileID: 6731319844826228673}
   m_Layer: 0
@@ -1658,22 +1472,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &6731319844826228678
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6731319844826228682}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.5
 --- !u!50 &6731319844826228679
 Rigidbody2D:
   serializedVersion: 4
@@ -1708,10 +1506,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefabs: []
+  BossBubblePrefab: {fileID: 0}
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
   destroySound: {fileID: 0}
+  MouseUI: {fileID: 0}
 --- !u!1 &6731319845088372482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1723,7 +1523,6 @@ GameObject:
   - component: {fileID: 6731319845088372733}
   - component: {fileID: 6731319845088372732}
   - component: {fileID: 6731319845088372734}
-  - component: {fileID: 6731319845088372735}
   - component: {fileID: 6731319845088372729}
   m_Layer: 0
   m_Name: myBubble5
@@ -1820,32 +1619,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &6731319845088372735
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6731319845088372482}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.4, y: 6.15}
-    newSize: {x: 5, y: 5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 5, y: 5}
-  m_EdgeRadius: 0
 --- !u!114 &6731319845088372729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1859,10 +1632,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefabs: []
+  BossBubblePrefab: {fileID: 0}
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
   destroySound: {fileID: 0}
+  MouseUI: {fileID: 0}
 --- !u!1 &6731319845155343100
 GameObject:
   m_ObjectHideFlags: 0
@@ -1873,6 +1648,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6731319845155343103}
   - component: {fileID: 6731319845155343102}
+  - component: {fileID: -410874247195286836}
+  - component: {fileID: 4920861801913857877}
   m_Layer: 0
   m_Name: myBubble
   m_TagString: bubble
@@ -1944,10 +1721,39 @@ MonoBehaviour:
   - {fileID: 1185001182325170737}
   - {fileID: 8693099620162623233}
   - {fileID: 1054055818650833556}
+  BossBubblePrefab: {fileID: 0}
   spawnInterval: 1
   minSpeed: 6
   maxSpeed: 8
   destroySound: {fileID: 0}
+  MouseUI: {fileID: 0}
+--- !u!114 &-410874247195286836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731319845155343100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6330e9038a31de4eb1e613e1b0548e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDirection: {x: 0, y: 0}
+  speed: 0
+  usePhysics: 0
+--- !u!114 &4920861801913857877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731319845155343100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61b40f58c6a98b42bf8c6b7030e0899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6731319845369678200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1958,7 +1764,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6731319845369678203}
   - component: {fileID: 6731319845369678202}
-  - component: {fileID: 6731319845369678196}
   - component: {fileID: 6731319845369678197}
   - component: {fileID: 6731319845369678199}
   m_Layer: 0
@@ -2035,22 +1840,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &6731319845369678196
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6731319845369678200}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 3.9
 --- !u!50 &6731319845369678197
 Rigidbody2D:
   serializedVersion: 4
@@ -2085,10 +1874,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefabs: []
+  BossBubblePrefab: {fileID: 0}
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
   destroySound: {fileID: 0}
+  MouseUI: {fileID: 0}
 --- !u!1 &7245879617366610504
 GameObject:
   m_ObjectHideFlags: 0
@@ -2099,7 +1890,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5209945700616483251}
   - component: {fileID: 8108479168520971677}
-  - component: {fileID: 9162082467305732872}
   - component: {fileID: 6489205682055751934}
   - component: {fileID: 865232453850188070}
   m_Layer: 0
@@ -2176,22 +1966,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &9162082467305732872
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7245879617366610504}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 3.9
 --- !u!50 &6489205682055751934
 Rigidbody2D:
   serializedVersion: 4
@@ -2226,10 +2000,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefabs: []
+  BossBubblePrefab: {fileID: 0}
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
   destroySound: {fileID: 0}
+  MouseUI: {fileID: 0}
 --- !u!1 &7730116903951077208
 GameObject:
   m_ObjectHideFlags: 0
@@ -2240,7 +2016,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6945189060617775272}
   - component: {fileID: 1456160092755646962}
-  - component: {fileID: 6555542522365529263}
   - component: {fileID: 5013667982981292670}
   - component: {fileID: 2165180643653457544}
   m_Layer: 0
@@ -2317,22 +2092,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &6555542522365529263
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7730116903951077208}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 3.9
 --- !u!50 &5013667982981292670
 Rigidbody2D:
   serializedVersion: 4
@@ -2367,10 +2126,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefabs: []
+  BossBubblePrefab: {fileID: 0}
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
   destroySound: {fileID: 0}
+  MouseUI: {fileID: 0}
 --- !u!1 &7777776584588278222
 GameObject:
   m_ObjectHideFlags: 0
@@ -2382,7 +2143,6 @@ GameObject:
   - component: {fileID: 1855337342896016663}
   - component: {fileID: 6303676924984695211}
   - component: {fileID: 3930733052533168657}
-  - component: {fileID: 2995811873088094430}
   - component: {fileID: 9019349145327896356}
   m_Layer: 0
   m_Name: myBubble3 (2)
@@ -2479,22 +2239,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &2995811873088094430
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7777776584588278222}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.3
 --- !u!114 &9019349145327896356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2508,10 +2252,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefabs: []
+  BossBubblePrefab: {fileID: 0}
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
   destroySound: {fileID: 0}
+  MouseUI: {fileID: 0}
 --- !u!1 &8693099620162623233
 GameObject:
   m_ObjectHideFlags: 0
@@ -2523,7 +2269,6 @@ GameObject:
   - component: {fileID: 8856551612613467993}
   - component: {fileID: 6665656774625015627}
   - component: {fileID: 770508763732571259}
-  - component: {fileID: 3716074622026045048}
   - component: {fileID: 2137296879667458770}
   m_Layer: 0
   m_Name: myBubble3 (3)
@@ -2620,22 +2365,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &3716074622026045048
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8693099620162623233}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.3
 --- !u!114 &2137296879667458770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2649,7 +2378,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefabs: []
+  BossBubblePrefab: {fileID: 0}
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
   destroySound: {fileID: 0}
+  MouseUI: {fileID: 0}

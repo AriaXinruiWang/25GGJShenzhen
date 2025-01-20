@@ -16,7 +16,7 @@ public class BubbleClickHandler : MonoBehaviour
         // 如果没有 Rigidbody2D 组件，输出错误日志
         if (rb == null)
         {
-            Debug.LogError("Rigidbody2D 组件未找到！请确保泡泡预制体上有 Rigidbody2D 组件。");
+            Debug.Log("Rigidbody2D 组件未找到！请确保泡泡预制体上有 Rigidbody2D 组件。");
         }
     }
 
