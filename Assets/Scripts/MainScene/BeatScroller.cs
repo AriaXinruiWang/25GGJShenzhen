@@ -4,26 +4,9 @@ using UnityEngine;
 
 public class BeatScroller : MonoBehaviour
 {
-    public float beatTempo;
-    public bool hasStart = false;
-
-    void Start()
-    {
-        beatTempo = beatTempo / 43f;
-    }
-
+    public float speed;
     void Update()
     {
-        if (!hasStart)
-        {
-            if (Input.anyKey)
-             {
-                 hasStart = true;
-             }
-        }
-        else
-        {
-            transform.position -= new Vector3(0f, beatTempo * Time.deltaTime, 0f);
-        }
+        transform.position -= new Vector3(0f, speed * Time.deltaTime, 0f);
     }
 }

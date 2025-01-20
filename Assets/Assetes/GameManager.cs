@@ -82,7 +82,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("GameManager Update() called.");
         multiplyText.text = "x" + multiply;
 
         if (Input.GetKeyDown(KeyCode.Escape))

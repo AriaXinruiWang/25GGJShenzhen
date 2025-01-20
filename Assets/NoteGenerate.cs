@@ -9,6 +9,7 @@ public class NoteGenerate : MonoBehaviour
 
     public KeyCode keyToPress;
     public float perfectAdjust;  // 可以设置调整的值
+    public float scrollSpeed = 2f; // 音符下落速度
 
     private string timeFileName = "beats_ts";  // 文本文件名
     private List<float> timePoints = new List<float>();  // 存储从文本文件读取的时间点
@@ -16,8 +17,8 @@ public class NoteGenerate : MonoBehaviour
     private float timeElapsed = 0f;
     private int lineCount = 0;
 
-    public string sortingLayerName = "Default"; // 渲染图层名称
-    public int orderInLayer = -2; // 渲染顺序
+    private string sortingLayerName = "Default"; // 渲染图层名称
+    private int orderInLayer = 1; // 渲染顺序
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +61,9 @@ public class NoteGenerate : MonoBehaviour
         DropLine dropLineScript = lineObject.AddComponent<DropLine>();  // 添加 DropLine 脚本
         dropLineScript.keyToPress = keyToPress;  // 设置按下的键
         dropLineScript.perfectAdjust = perfectAdjust;  // 设置完美调整值
+
+        BeatScroller beatScroller = lineObject.AddComponent<BeatScroller>();
+        beatScroller.speed = scrollSpeed;  // 使用 Inspector 中设置的速度
 
         lineCount++;
     }
