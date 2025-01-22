@@ -11,6 +11,7 @@ TagManager:
   - MouseUI
   - bossbubble
   - ButtomCollider
+  - bosseye
   layers:
   - Default
   - TransparentFX

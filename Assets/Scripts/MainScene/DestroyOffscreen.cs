@@ -10,6 +10,7 @@ public class DestroyOffscreen : MonoBehaviour
     {
         // 获取主摄像机
         mainCamera = Camera.main;
+        enabled = false; // 默认禁用脚本
         if (mainCamera == null)
         {
             Debug.LogError("Main camera is not assigned!");
@@ -44,5 +45,11 @@ public class DestroyOffscreen : MonoBehaviour
         // 检查物体是否超出屏幕
         return position.x < leftBound || position.x > rightBound ||
                position.y < bottomBound || position.y > topBound;
+    }
+
+    // 提供一个方法用于启用脚本
+    public void EnableScript()
+    {
+        enabled = true;
     }
 }

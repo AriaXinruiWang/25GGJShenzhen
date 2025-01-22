@@ -4,7 +4,8 @@ using UnityEngine.UI;
 using System;
 
 public class BubbleSpawner : MonoBehaviour
-{
+
+{   
     public GameObject[] bubblePrefabs; // 气泡预制体数组
     public GameObject BossBubblePrefab; // BossBubble 预制体
     public float spawnInterval = 1f; // 生成气泡的时间间隔
@@ -78,6 +79,12 @@ public class BubbleSpawner : MonoBehaviour
         {
             rb.mass = 1f;
             rb.gravityScale = 1f;
+
+            // 当 mass 不为 0 时，添加 DestroyOffscreen 脚本
+            if (!bubblePrefab.TryGetComponent<DestroyOffscreen>(out _))
+            {
+                bubblePrefab.AddComponent<DestroyOffscreen>();
+            }
         }
     }
 
@@ -93,8 +100,8 @@ public class BubbleSpawner : MonoBehaviour
         // 生成 BossBubble
         GameObject bossBubble = Instantiate(BossBubblePrefab, GetRandomSpawnPosition(), Quaternion.identity);
 
-        // 设置 BossBubble 的 tag
-        bossBubble.tag = "BossBubble";
+        // // 设置 BossBubble 的 tag
+        // bossBubble.tag = "BossBubble";
 
         // 设置 BossBubble 的移动方向和速度
         SetBubbleMovement(bossBubble, GetMoveDirection(bossBubble.transform.position),UnityEngine.Random.Range(minSpeed, maxSpeed));
@@ -125,9 +132,17 @@ public class BubbleSpawner : MonoBehaviour
         float screenHeight = 2f * mainCamera.orthographicSize;
         float screenWidth = screenHeight * mainCamera.aspect;
 
+        float padding = 1f;
+
         // 随机选择左侧或右侧
-        float x =UnityEngine. Random.Range(0, 2) == 0 ? -screenWidth / 3 : screenWidth / 3;
-        float y =UnityEngine. Random.Range(-screenHeight / 3, screenHeight / 3);
+        float x =UnityEngine. Random.Range(0, 2) == 0 ? -screenWidth / 5 : screenWidth /5;
+        float y =UnityEngine. Random.Range(-screenHeight / 4, screenHeight / 3);
+
+        float minx = -screenWidth / 5 + padding;
+        float maxx = screenWidth / 5 - padding;
+        float miny = -screenHeight / 4 + padding;
+        float maxy = screenHeight / 3 - padding;
+
 
         return new Vector2(x, y);
     }

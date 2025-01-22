@@ -17,10 +17,11 @@ public class StartPanel : MonoBehaviour
     {
         
     }
-    public void StartGame()
+    public void OnPlayHandler()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
+    } 
+
     public void OnOptionsHandler()
     {
         optionsPanel.SetActive(true);
