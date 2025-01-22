@@ -19,7 +19,7 @@ public class StartPanel : MonoBehaviour
     }
     public void OnPlayHandler()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Scene1");
     } 
 
     public void OnOptionsHandler()
