@@ -10,7 +10,7 @@ public class mouthController : MonoBehaviour
     void Start()
     {
         Debug.Log("mouthController.Start() called.");
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
         Debug.Log("Mouth is hidden on start.");
     }
 
@@ -58,9 +58,9 @@ public class mouthController : MonoBehaviour
             Debug.LogError("Failed to instantiate mouth!");
             return;
         }
-
-        // 获取 mouthController 组件
-        mouthController controller = mouth.GetComponent<mouthController>();
+         GameManager.instance.activeMouths.Add(mouth);
+            // 获取 mouthController 组件
+            mouthController controller = mouth.GetComponent<mouthController>();
         if (controller != null)
         {
             controller.Show(position); // 显示嘴巴
@@ -70,7 +70,8 @@ public class mouthController : MonoBehaviour
             Debug.LogError("mouthController component not found on mouthPrefab!");
         }
 
-        Debug.Log($"Mouth spawned at position: {position}");
+        Debug.Log($"嘴巴预制体是否激活======: {mouth.gameObject.activeSelf}");
+      
     }
     // public GameObject[] mouthPrefabs; // 嘴巴预制体数组
     // // 初始化时隐藏嘴巴

@@ -11,6 +11,10 @@ public class BubbleSpawner : MonoBehaviour
     public float spawnInterval = 1f; // 生成气泡的时间间隔
     public float minSpeed = 1f; // 气泡最小移动速度
     public float maxSpeed = 3f; // 气泡最大移动速度
+    private float timeElapsed = 0.0f; // 游戏时间累计
+    private float decreaseRate = 0.01f; // 生成间隔减少速率
+    private float minSpawnInterval = 0.2f; // 最小生成间隔
+    private float timeSinceLastSpawn = 0.0f; // 距离上次生成的时间
 
     private Camera mainCamera;
     public AudioClip destroySound;
@@ -34,6 +38,26 @@ public class BubbleSpawner : MonoBehaviour
         {
             SpawnBubble();
             yield return new WaitForSeconds(spawnInterval); // 每隔一段时间生成一个气泡
+        }
+    }
+
+    void Update()
+    {
+        // 更新距离上次生成的时间
+        timeSinceLastSpawn += Time.deltaTime;
+
+        // 逐渐减少生成间隔
+        if (spawnInterval > minSpawnInterval)
+        {
+            spawnInterval -= decreaseRate * Time.deltaTime;
+            spawnInterval = Mathf.Max(spawnInterval, minSpawnInterval); // 确保不低于最小值
+        }
+
+        // 检查是否到达生成时间
+        if (timeSinceLastSpawn >= spawnInterval)
+        {
+            SpawnBubble();
+            timeSinceLastSpawn = 0.0f; // 重置计时器
         }
     }
 
@@ -153,10 +177,4 @@ public class BubbleSpawner : MonoBehaviour
         // 如果气泡从左侧生成，则向右移动；如果从右侧生成，则向左移动
         return spawnPosition.x < 0 ? Vector2.right : Vector2.left;
     }
-
-    // // 玩家 miss hit 时调用
-    // public void OnMissHit()
-    // {
-    //     SpawnBossBubbleOnMiss();
-    // }
 }

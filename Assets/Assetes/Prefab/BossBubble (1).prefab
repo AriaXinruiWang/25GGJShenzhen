@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1942802329332202380}
   - component: {fileID: 5031361625739376420}
   - component: {fileID: 7900513069118586148}
+  - component: {fileID: 6255197704532573496}
   m_Layer: 0
   m_Name: BossBubble (1)
   m_TagString: bossbubble
@@ -170,3 +171,15 @@ MonoBehaviour:
   maxSpeed: 3
   destroySound: {fileID: 0}
   MouseUI: {fileID: 0}
+--- !u!114 &6255197704532573496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639690281431791991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8d892359b23c34cb8a1e4625e61d8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

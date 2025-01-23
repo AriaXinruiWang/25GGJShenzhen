@@ -6,7 +6,8 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
-    private List<GameObject> activeMouths = new List<GameObject>(); // 当前活动的嘴巴对象
+
+    public List<GameObject> activeMouths = new List<GameObject>(); // 当前活动的嘴巴对象
     public AudioSource myMusic;
     public bool startPlaying;
 
@@ -38,7 +39,7 @@ public class GameManager : MonoBehaviour
     public float normalHits;
     public float perfectHits;
     public float missHits;
-    public int maxRemainBubbles = 15; // 设置允许的最大泡泡数量   
+    public int maxRemainBubbles = 3; // 设置允许的最大泡泡数量   
 
     public GameObject mouthPrefab;
     public GameObject Bosseye; // Bosseye 动画 Prefab
@@ -48,8 +49,10 @@ public class GameManager : MonoBehaviour
     public GameObject BadResultScreen;
     public Text mouthsCounter, perfectCounter, missedCounter;
     public BubbleSpawner bubbleSpawner; // 声明 bubbleSpawner 变量
-     void Awake()
+   // public BossBubbleController bossBubbleController; // BossBubbleController 引用
+    void Awake()
     {
+     
         // 动态查找 BosseyeController
         if (bosseyeController == null)
         {
@@ -175,27 +178,29 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("Game is playing.");
-            int remainBubbles = GameObject.FindGameObjectsWithTag("bubble").Length +
-                    GameObject.FindGameObjectsWithTag("bossbubble").Length;
+            int remainBubbles = GameObject.FindGameObjectsWithTag("bubble").Length;
+               // + GameObject.FindGameObjectsWithTag("bossbubble").Length;
             Debug.Log($"Remaining bubbles: {remainBubbles}");
 
             if (remainBubbles >= maxRemainBubbles)
             {
                 Debug.Log("Max bubbles reached. Showing bad result screen.");
-                BadResultScreen.SetActive(true);
                 PauseGame(); // 暂停游戏
+                BadResultScreen.SetActive(true);
+                
             }
 
-            else if (!myMusic.isPlaying && !BadResultScreen.activeInHierarchy && !GoodResultScreen.activeInHierarchy && !emergencyStop)
+            else if (!myMusic.isPlaying && !BadResultScreen.activeInHierarchy && !GoodResultScreen.activeInHierarchy )
             {
                 Debug.Log("Music stopped. Checking game result.");
                 if (remainBubbles < maxRemainBubbles)
                 {
                     Debug.Log("Good result. Showing good result screen.");
-                    GoodResultScreen.SetActive(true);
-                    mouthsCounter.text = " " + totalmouths;
-                    perfectCounter.text = " " + perfectHits;
                     PauseGame();
+                    GoodResultScreen.SetActive(true);
+                   // mouthsCounter.text = " " + totalmouths;
+                  //  perfectCounter.text = " " + perfectHits;
+                    
                 }
                 else
                 {
@@ -258,7 +263,7 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Score increased by {ScorePerNote * multiply}. New Score: {Score}");
 
         multiplyTimes++;
-        multiply = baseNumber + multiplyTimes * 0.5f;
+        multiply = baseNumber + multiplyTimes * 0.1f;
         multiply = (float)Math.Round((decimal)multiply, 1);
         Debug.Log($"Multiply updated. New Multiply: {multiply}");
 
@@ -266,8 +271,8 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Score text updated to: {scoreText.text}");
 
         // 计算嘴巴生成数量
-        int mouthCount = Mathf.FloorToInt(Score / 3) * 3; // score / 3 的倍数取整后乘以 3
-        Debug.Log($"Calculated mouth count: {mouthCount}"); // 输出计算后的嘴巴数量
+        int mouthCount = Mathf.FloorToInt(Score) ; // score取整
+        Debug.Log($"Calculated mouth count========: {mouthCount}"); // 输出计算后的嘴巴数量
         if (mouthCount > 0)
         {   
             Debug.Log($"Spawning {mouthCount} mouths..."); // 输出生成嘴巴的数量
@@ -318,6 +323,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("NoteMiss() called.");
         Debug.Log("Miss");
+        //bossBubbleController.SpawnBossBubble(); // 生成 BossBubble
 
         // 显示 Bosseye
         if (bosseyeController != null)
@@ -348,15 +354,17 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Multiply reset to: {multiply}");
 
         // 生成 bossBubble
-        if (bubbleSpawner != null)
-        {
-            bubbleSpawner.SpawnBossBubbleOnMiss(); // 调用 BubbleSpawner 的方法
-            Debug.Log("SpawnBossBubbleOnMiss called from BubbleSpawner."); // 输出调试信息
-        }
-        else
-        {
-            Debug.LogError("BubbleSpawner is not assigned!");
-        }
+
+       
+       // if (bubbleSpawner != null)
+        //{
+        //    bossBubbleController.SpawnBossBubble(); // 生成 BossBubble
+       //     Debug.Log("SpawnBossBubbleOnMiss called from BubbleSpawner."); // 输出调试信息
+       // }
+       // else
+      //  {
+       //     Debug.LogError("BubbleSpawner is not assigned!");
+       // }
 
         Score = 0;
         Debug.Log("Score reset to 0.");
@@ -364,6 +372,7 @@ public class GameManager : MonoBehaviour
         foreach (var mouth in activeMouths)
         {
             Destroy(mouth); // 销毁嘴巴对象
+            Debug.Log("销毁了嘴巴");
         }
         activeMouths.Clear(); // 清空活动列表
 
