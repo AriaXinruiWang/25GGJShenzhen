@@ -11,10 +11,11 @@ public class BubbleSpawner : MonoBehaviour
     public float spawnInterval = 1f; // 生成气泡的时间间隔
     public float minSpeed = 1f; // 气泡最小移动速度
     public float maxSpeed = 3f; // 气泡最大移动速度
-    private float timeElapsed = 0.0f; // 游戏时间累计
+    // private float timeElapsed = 0.0f; // 游戏时间累计
     private float decreaseRate = 0.01f; // 生成间隔减少速率
     private float minSpawnInterval = 0.2f; // 最小生成间隔
-    private float timeSinceLastSpawn = 0.0f; // 距离上次生成的时间
+    private float timeSinceLastSpawn = 0.0f; // 距离上次生成的时间、
+    public event Action OnBubbleSpawningStarted; // 气泡生成开始事件
 
     private Camera mainCamera;
     public AudioClip destroySound;
@@ -23,13 +24,16 @@ public class BubbleSpawner : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
-        StartCoroutine(StartSpawningAfterDelay(1f)); // 1秒后开始生成气泡
+        StartCoroutine(StartSpawningAfterDelay(8f)); // 10秒后开始生成气泡
     }
+
 
     IEnumerator StartSpawningAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay); // 等待 delay 秒
         StartCoroutine(SpawnBubbles()); // 开始生成气泡
+        // 触发气泡生成开始事件
+         OnBubbleSpawningStarted?.Invoke();
     }
 
     IEnumerator SpawnBubbles()
@@ -37,7 +41,7 @@ public class BubbleSpawner : MonoBehaviour
         while (true)
         {
             SpawnBubble();
-            yield return new WaitForSeconds(spawnInterval); // 每隔一段时间生成一个气泡
+            yield return new WaitForSeconds(spawnInterval); // 每隔一段时间生成一个气泡 
         }
     }
 

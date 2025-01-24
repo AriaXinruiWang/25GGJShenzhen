@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
 
     public List<GameObject> activeMouths = new List<GameObject>(); // 当前活动的嘴巴对象
     public AudioSource myMusic;
-    public bool startPlaying;
+    private bool startPlaying = true;
+    public Camera mainCamera; // 主摄像机
 
     public BeatScroller BS;
     public static GameManager instance;
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
     public float normalHits;
     public float perfectHits;
     public float missHits;
-    public int maxRemainBubbles = 3; // 设置允许的最大泡泡数量   
+    public int maxRemainBubbles = 400; // 设置允许的最大泡泡数量因屏幕外消不掉所以设置大，在GameObject列表里调整有用   
 
     public GameObject mouthPrefab;
     public GameObject Bosseye; // Bosseye 动画 Prefab
@@ -47,6 +48,7 @@ public class GameManager : MonoBehaviour
     private bool emergencyStop = false;
     public GameObject GoodResultScreen;
     public GameObject BadResultScreen;
+    public GameObject PausePanel;
     public Text mouthsCounter, perfectCounter, missedCounter;
     public BubbleSpawner bubbleSpawner; // 声明 bubbleSpawner 变量
    // public BossBubbleController bossBubbleController; // BossBubbleController 引用
@@ -114,38 +116,11 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("BubbleSpawner is not assigned in GameManager!");
         }
-
-        // // 使嘴巴动画初始时隐藏
-        // mouthsList.Clear(); // 清空列表
-        // Debug.Log("Mouths list cleared.");
-
-        // foreach (GameObject mouth in mouthsList)
-        // {
-        //     if (mouth != null)
-        //         mouth.SetActive(false); // 隐藏已有的嘴巴动画
-        // }
-
-        // // 查找场景中所有的嘴巴动画
-        // totalmouths = GameObject.FindGameObjectsWithTag("mouth").Length;
-        // Debug.Log($"Total mouths found in scene: {totalmouths}");
-
-        // // 隐藏 Prefab（初始化时不显示）
-        // if (MouthChewAnimation != null)
-        // {
-        //     MouthChewAnimation.SetActive(false); // 隐藏嘴巴动画
-        //     Debug.Log("MouthChewAnimation prefab hidden.");
-        // }
-
-        // if (Bosseye != null)
-        // {
-        //     Bosseye.SetActive(false); // 隐藏 Bosseye 动画
-        //     Debug.Log("Bosseye prefab hidden.");
-        // }
     }
-
+ 
     void Update()
-    {
-        multiplyText.text = "x" + multiply;
+    {    Debug.Log($"startPlaying: {startPlaying}");
+        // multiplyText.text = "x" + multiply;
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -165,24 +140,45 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (!startPlaying)
+        if (PausePanel.activeInHierarchy) // 如果 PausePanel 激活
         {
-            // Debug.Log("Game not started yet.");
-            // if (Input.GetKeyDown(KeyCode.Space))
-            // {
-            //     startPlaying = true;
-            //     myMusic.Play();
-            //     BS.hasStart = true;
-            // }
+            if (myMusic.isPlaying) // 如果音乐正在播放
+            {
+                myMusic.Pause(); // 暂停音乐
+            }
         }
-        else
+        else // 如果 PausePanel 未激活
+        {
+            if (!myMusic.isPlaying) // 如果音乐未播放
+            {
+                myMusic.UnPause(); // 恢复音乐
+            }
+        }
+
+        // 检测游戏开始输入（按下空格键）
+        // if (Input.GetKeyDown(KeyCode.Space) && startPlaying)
+        // {
+            // StartGame();
+            
+
+        if (startPlaying)
+        // {
+        //     // Debug.Log("Game not started yet.");
+        //     // if (Input.GetKeyDown(KeyCode.Space))
+        //     // {
+        //     //     startPlaying = true;
+        //     //     myMusic.Play();
+        //     //     BS.hasStart = true;
+        //     // }
+        // }
+        // else
         {
             Debug.Log("Game is playing.");
             int remainBubbles = GameObject.FindGameObjectsWithTag("bubble").Length;
                // + GameObject.FindGameObjectsWithTag("bossbubble").Length;
-            Debug.Log($"Remaining bubbles: {remainBubbles}");
+           Debug.Log($"remainBubbles: {remainBubbles}, maxRemainBubbles: {maxRemainBubbles}");
 
-            if (remainBubbles >= maxRemainBubbles)
+            if (remainBubbles >= maxRemainBubbles && !PausePanel.activeInHierarchy)
             {
                 Debug.Log("Max bubbles reached. Showing bad result screen.");
                 PauseGame(); // 暂停游戏
@@ -190,7 +186,7 @@ public class GameManager : MonoBehaviour
                 
             }
 
-            else if (!myMusic.isPlaying && !BadResultScreen.activeInHierarchy && !GoodResultScreen.activeInHierarchy )
+            else if (!myMusic.isPlaying && !BadResultScreen.activeInHierarchy && !GoodResultScreen.activeInHierarchy && !PausePanel.activeInHierarchy )
             {
                 Debug.Log("Music stopped. Checking game result.");
                 if (remainBubbles < maxRemainBubbles)
@@ -198,9 +194,6 @@ public class GameManager : MonoBehaviour
                     Debug.Log("Good result. Showing good result screen.");
                     PauseGame();
                     GoodResultScreen.SetActive(true);
-                   // mouthsCounter.text = " " + totalmouths;
-                  //  perfectCounter.text = " " + perfectHits;
-                    
                 }
                 else
                 {
@@ -211,6 +204,13 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    void StartGame()
+    {
+        startPlaying = true;
+        myMusic.Play(); // 开始播放背景音乐
+        Debug.Log("Game started!");
     }
 
     void PauseGame()
@@ -283,40 +283,6 @@ public class GameManager : MonoBehaviour
             Debug.Log("No mouths to spawn."); // 输出无需生成嘴巴
         }   
     }
-
-
-    //     // 每增加 3 分，生成三个新的嘴巴动画
-    //     if (Score >= 1 * (totalmouths + 3))
-    //     {
-    //         Debug.Log($"Score {Score} >= {3 * (totalmouths + 1)}. Triggering mouth animations.");
-    //         for (int i = 0; i < 3; i++)
-    //         {
-    //             TriggerMouthAnimation();
-    //         }
-    //         totalmouths+=3; // 更新总嘴巴数量
-    //         Debug.Log($"Total mouths updated to: {totalmouths}");
-    //     }
-    // }
-    // 生成嘴巴
-    // private void SpawnMouths(int count)
-    // {    Debug.Log($"Starting to spawn {count} mouths..."); // 输出开始生成嘴巴的数量
-
-    //     for (int i = 0; i < count; i++)
-    //     {
-    //         // 随机生成 X 和 Y 坐标
-    //         float randomX = UnityEngine.Random.Range(-7.76f, 7.86f); // X 坐标在 7.76 到 7.86 之间
-    //         float randomY = -3.88f; // Y 坐标固定为 -3.88
-    //         Vector2 position = new Vector2(randomX, randomY);
-    //         Debug.Log($"Generated position for mouth {i + 1}: X={randomX}, Y={randomY}"); // 输出生成的坐标
-
-
-    //         // 实例化嘴巴对象
-    //         GameObject mouth = Instantiate(mouthPrefab, new Vector2(randomX, randomY), Quaternion.identity);
-    //         mouth.GetComponent<mouthController>().Show(position); // 显示嘴巴
-    //         activeMouths.Add(mouth); // 添加到活动列表
-    //         Debug.Log($"Mouth{i+1} spawned at position: {position}");
-    //     }
-
 
     // 音符失误的处理
     public void NoteMiss()
