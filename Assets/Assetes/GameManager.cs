@@ -29,8 +29,9 @@ public class GameManager : MonoBehaviour
     public chopboardController ChopboardController;
     public mouthController mouth;
     public cutSoundController soundController; // 引用cutSoundController实例切泡泡
+    public BadSoundController badsoundController; //失败结算
+    public GoodSoundController goodsoundController; //失败结算
     
-
 
     [Header("ScoreValue Setting")]
     public float BaseScoreValue;
@@ -41,7 +42,7 @@ public class GameManager : MonoBehaviour
     public float normalHits;
     public float perfectHits;
     public float missHits;
-    public int maxRemainBubbles = 400; // 设置允许的最大泡泡数量因屏幕外消不掉所以设置大，在GameObject列表里调整有用   
+    public int maxRemainBubbles = 900; // 设置允许的最大泡泡数量因屏幕外消不掉所以设置大，在GameObject列表里调整有用   
 
     public GameObject mouthPrefab;
     public GameObject Bosseye; // Bosseye 动画 Prefab
@@ -179,12 +180,22 @@ public class GameManager : MonoBehaviour
                // + GameObject.FindGameObjectsWithTag("bossbubble").Length;
            Debug.Log($"remainBubbles: {remainBubbles}, maxRemainBubbles: {maxRemainBubbles}");
 
-            if (remainBubbles >= maxRemainBubbles && !PausePanel.activeInHierarchy)
+            if (remainBubbles >= maxRemainBubbles && !PausePanel.activeInHierarchy  )
             {
                 Debug.Log("Max bubbles reached. Showing bad result screen.");
                 PauseGame(); // 暂停游戏
                 BadResultScreen.SetActive(true);
-                
+
+                // 播放失败音效
+                if (badsoundController!= null)
+                {   Debug.Log("Playing bad sound..."); // 添加调试信息
+                    badsoundController.PlayBadSound();
+                }
+                else
+                {
+                    Debug.LogWarning("badSoundController is not assigned in GameManager.");
+                }
+                        
             }
 
             else if (!myMusic.isPlaying && !BadResultScreen.activeInHierarchy && !GoodResultScreen.activeInHierarchy && !PausePanel.activeInHierarchy )
@@ -195,6 +206,15 @@ public class GameManager : MonoBehaviour
                     Debug.Log("Good result. Showing good result screen.");
                     PauseGame();
                     GoodResultScreen.SetActive(true);
+                    // 播放成功音效
+                    if (goodsoundController!= null)
+                    {   Debug.Log("Playing good sound..."); // 添加调试信息
+                        goodsoundController.PlaygoodSound();
+                    }
+                    else
+                    {
+                        Debug.LogWarning("goodSoundController is not assigned in GameManager.");
+                    }
                 }
                 else
                 {
@@ -202,6 +222,15 @@ public class GameManager : MonoBehaviour
                     BadResultScreen.SetActive(true);
                     missedCounter.text = " " + missHits;
                     PauseGame();
+                    // 播放失败音效
+                    if (badsoundController!= null)
+                    {   Debug.Log("Playing bad sound..."); // 添加调试信息
+                        badsoundController.PlayBadSound();
+                    }
+                    else
+                    {
+                        Debug.LogWarning("badSoundController is not assigned in GameManager.");
+                    }
                 }
             }
         }
@@ -372,16 +401,7 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Perfect hit! Score increased by {PerfectScoreValue * multiply}. New Score: {Score}");
         NoteHit();
 
-        // // 显示 切完消失动画
-        // if (ChopboardController != null)
-        // {
-        //     ChopboardController.Show();
-        //     Debug.Log("ChopboardController is hidden");
-        // }
-        // else
-        // {
-        //     Debug.Log("ChopboardController is null!");
-        // }
+
     }
 
     public void NormalHit()
@@ -391,16 +411,7 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Normal hit! Score increased by {BaseScoreValue * multiply}. New Score: {Score}");
         NoteHit();
 
-        // // 显示 切完消失动画
-        // if (ChopboardController != null)
-        // {
-        //     ChopboardController.Show();
-        //     Debug.Log("ChopboardController is hidden");
-        // }
-        // else
-        // {
-        //     Debug.Log("ChopboardController is null!");
-        // }
+
     }
 }
 

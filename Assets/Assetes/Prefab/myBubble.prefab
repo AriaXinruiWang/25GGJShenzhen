@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4264679583793307335}
   - component: {fileID: 5169063056059190129}
+  - component: {fileID: 8373302669298960722}
   - component: {fileID: 3212857648255206449}
   - component: {fileID: 7382666956554700552}
   m_Layer: 0
@@ -86,6 +87,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8373302669298960722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573933075063233797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d181a4517c90f8b47be8b7ee56558224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaltImage: {fileID: 21300000, guid: ef85b3456ec09bf409b2361dcd2d7f6c, type: 3}
+  pressedImage: {fileID: 21300000, guid: 6b1ecf7133c2883468a53803032f3f65, type: 3}
 --- !u!50 &3212857648255206449
 Rigidbody2D:
   serializedVersion: 4
@@ -124,6 +139,7 @@ MonoBehaviour:
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
+  bubbleSwitch: {fileID: 0}
   destroySound: {fileID: 0}
   MouseUI: {fileID: 0}
 --- !u!1 &798861474359987971
@@ -136,6 +152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4618688180543629617}
   - component: {fileID: 6032352199423718911}
+  - component: {fileID: 3507175031848905613}
   - component: {fileID: 5885902125839325033}
   - component: {fileID: 8680670992317011454}
   m_Layer: 0
@@ -212,6 +229,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3507175031848905613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798861474359987971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d181a4517c90f8b47be8b7ee56558224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaltImage: {fileID: 21300000, guid: 6e4103c4116876748be2d89d1437a03f, type: 3}
+  pressedImage: {fileID: 21300000, guid: 6b1ecf7133c2883468a53803032f3f65, type: 3}
 --- !u!50 &5885902125839325033
 Rigidbody2D:
   serializedVersion: 4
@@ -250,6 +281,7 @@ MonoBehaviour:
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
+  bubbleSwitch: {fileID: 0}
   destroySound: {fileID: 0}
   MouseUI: {fileID: 0}
 --- !u!1 &1054055818650833556
@@ -262,6 +294,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6971986272064856571}
   - component: {fileID: 5614417314561235094}
+  - component: {fileID: 3309419462044385123}
   - component: {fileID: 4357020843492113775}
   - component: {fileID: 2321941958312631264}
   m_Layer: 0
@@ -338,6 +371,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3309419462044385123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054055818650833556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d181a4517c90f8b47be8b7ee56558224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaltImage: {fileID: 21300000, guid: 6125409e650246a4dae969f3e2efd992, type: 3}
+  pressedImage: {fileID: 21300000, guid: 4f06774b817dcba4cab93aedc5c70afd, type: 3}
 --- !u!50 &4357020843492113775
 Rigidbody2D:
   serializedVersion: 4
@@ -376,6 +423,7 @@ MonoBehaviour:
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
+  bubbleSwitch: {fileID: 0}
   destroySound: {fileID: 0}
   MouseUI: {fileID: 0}
 --- !u!1 &1185001182325170737
@@ -388,6 +436,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8025140973835079277}
   - component: {fileID: 5112551508823500039}
+  - component: {fileID: 7937650026437897700}
   - component: {fileID: 7668331767118480522}
   - component: {fileID: 8253975256984123825}
   m_Layer: 0
@@ -464,6 +513,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7937650026437897700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185001182325170737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d181a4517c90f8b47be8b7ee56558224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaltImage: {fileID: 21300000, guid: acd521f512437dd4cac9036f64ed77f1, type: 3}
+  pressedImage: {fileID: 21300000, guid: 66fcedfbb3f770e41b812b646cb06198, type: 3}
 --- !u!50 &7668331767118480522
 Rigidbody2D:
   serializedVersion: 4
@@ -502,6 +565,7 @@ MonoBehaviour:
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
+  bubbleSwitch: {fileID: 0}
   destroySound: {fileID: 0}
   MouseUI: {fileID: 0}
 --- !u!1 &4316209023453312199
@@ -514,6 +578,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4530320908783043438}
   - component: {fileID: 3418092664245349133}
+  - component: {fileID: 7908731684415954805}
   - component: {fileID: 6690034989635861799}
   - component: {fileID: 2584650781047227305}
   m_Layer: 0
@@ -590,6 +655,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7908731684415954805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4316209023453312199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d181a4517c90f8b47be8b7ee56558224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaltImage: {fileID: 21300000, guid: c0713dfd2efab6442a04e8765e83baf6, type: 3}
+  pressedImage: {fileID: 21300000, guid: 66fcedfbb3f770e41b812b646cb06198, type: 3}
 --- !u!50 &6690034989635861799
 Rigidbody2D:
   serializedVersion: 4
@@ -628,6 +707,7 @@ MonoBehaviour:
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
+  bubbleSwitch: {fileID: 0}
   destroySound: {fileID: 0}
   MouseUI: {fileID: 0}
 --- !u!1 &4390189067741577419
@@ -640,6 +720,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2521532945846242367}
   - component: {fileID: 1299519231690360649}
+  - component: {fileID: 5843778227699712650}
   - component: {fileID: 383053631852013011}
   - component: {fileID: 1480766921084933995}
   m_Layer: 0
@@ -716,6 +797,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5843778227699712650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4390189067741577419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d181a4517c90f8b47be8b7ee56558224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaltImage: {fileID: 21300000, guid: 66e64f5638fb315459751cf95c7fb2a5, type: 3}
+  pressedImage: {fileID: 21300000, guid: 66fcedfbb3f770e41b812b646cb06198, type: 3}
 --- !u!50 &383053631852013011
 Rigidbody2D:
   serializedVersion: 4
@@ -754,6 +849,7 @@ MonoBehaviour:
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
+  bubbleSwitch: {fileID: 0}
   destroySound: {fileID: 0}
   MouseUI: {fileID: 0}
 --- !u!1 &5691524188069730827
@@ -766,6 +862,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8126367557028028391}
   - component: {fileID: 8242356675081852732}
+  - component: {fileID: 6498921743427063823}
   - component: {fileID: 2814754176587477536}
   - component: {fileID: 2115316704877819628}
   m_Layer: 0
@@ -842,6 +939,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6498921743427063823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5691524188069730827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d181a4517c90f8b47be8b7ee56558224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaltImage: {fileID: 21300000, guid: fd9cd99cab38303409fc953b2082de63, type: 3}
+  pressedImage: {fileID: 21300000, guid: 6b1ecf7133c2883468a53803032f3f65, type: 3}
 --- !u!50 &2814754176587477536
 Rigidbody2D:
   serializedVersion: 4
@@ -880,6 +991,7 @@ MonoBehaviour:
   spawnInterval: 1
   minSpeed: 5
   maxSpeed: 3
+  bubbleSwitch: {fileID: 0}
   destroySound: {fileID: 0}
   MouseUI: {fileID: 0}
 --- !u!1 &6102902515378053688
@@ -892,6 +1004,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4531465137826166512}
   - component: {fileID: 7365181081052068983}
+  - component: {fileID: 8984592772408348724}
   - component: {fileID: 1386697541441779952}
   - component: {fileID: 7057675391506734678}
   m_Layer: 0
@@ -968,6 +1081,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8984592772408348724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6102902515378053688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d181a4517c90f8b47be8b7ee56558224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaltImage: {fileID: 21300000, guid: 4ebdb245e4d8611469e8691c5aec1fd7, type: 3}
+  pressedImage: {fileID: 21300000, guid: 6b1ecf7133c2883468a53803032f3f65, type: 3}
 --- !u!50 &1386697541441779952
 Rigidbody2D:
   serializedVersion: 4
@@ -1006,6 +1133,7 @@ MonoBehaviour:
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
+  bubbleSwitch: {fileID: 0}
   destroySound: {fileID: 0}
   MouseUI: {fileID: 0}
 --- !u!1 &6728081203219913070
@@ -1018,6 +1146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5683317760343883229}
   - component: {fileID: 1158181483259177001}
+  - component: {fileID: 9138106403245750863}
   - component: {fileID: 439109647970746223}
   - component: {fileID: 3119330244844137456}
   m_Layer: 0
@@ -1094,6 +1223,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &9138106403245750863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6728081203219913070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d181a4517c90f8b47be8b7ee56558224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaltImage: {fileID: 21300000, guid: af4910c56bcfc9544b5bb17e19e62098, type: 3}
+  pressedImage: {fileID: 21300000, guid: 4f06774b817dcba4cab93aedc5c70afd, type: 3}
 --- !u!50 &439109647970746223
 Rigidbody2D:
   serializedVersion: 4
@@ -1132,6 +1275,7 @@ MonoBehaviour:
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
+  bubbleSwitch: {fileID: 0}
   destroySound: {fileID: 0}
   MouseUI: {fileID: 0}
 --- !u!1 &6731319844702547325
@@ -1144,6 +1288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6731319844702547324}
   - component: {fileID: 6731319844702547327}
+  - component: {fileID: 6168572245847946291}
   - component: {fileID: 6731319844702547321}
   - component: {fileID: 6731319844702547320}
   m_Layer: 0
@@ -1220,6 +1365,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6168572245847946291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731319844702547325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d181a4517c90f8b47be8b7ee56558224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaltImage: {fileID: 21300000, guid: aa0c46ec4eb7ef74f8806d47eeb83e79, type: 3}
+  pressedImage: {fileID: 21300000, guid: 6b1ecf7133c2883468a53803032f3f65, type: 3}
 --- !u!50 &6731319844702547321
 Rigidbody2D:
   serializedVersion: 4
@@ -1258,6 +1417,7 @@ MonoBehaviour:
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
+  bubbleSwitch: {fileID: 0}
   destroySound: {fileID: 0}
   MouseUI: {fileID: 0}
 --- !u!1 &6731319844759195103
@@ -1270,6 +1430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6731319844759195102}
   - component: {fileID: 6731319844759195097}
+  - component: {fileID: 7447003569066187454}
   - component: {fileID: 6731319844759195096}
   - component: {fileID: 6731319844759195098}
   m_Layer: 0
@@ -1346,6 +1507,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7447003569066187454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731319844759195103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d181a4517c90f8b47be8b7ee56558224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaltImage: {fileID: 21300000, guid: c55de005b78555c4db2349219b612457, type: 3}
+  pressedImage: {fileID: 21300000, guid: 4f06774b817dcba4cab93aedc5c70afd, type: 3}
 --- !u!50 &6731319844759195096
 Rigidbody2D:
   serializedVersion: 4
@@ -1384,6 +1559,7 @@ MonoBehaviour:
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
+  bubbleSwitch: {fileID: 0}
   destroySound: {fileID: 0}
   MouseUI: {fileID: 0}
 --- !u!1 &6731319844826228682
@@ -1396,6 +1572,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6731319844826228677}
   - component: {fileID: 6731319844826228676}
+  - component: {fileID: 4619739337306718709}
   - component: {fileID: 6731319844826228679}
   - component: {fileID: 6731319844826228673}
   m_Layer: 0
@@ -1472,6 +1649,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4619739337306718709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731319844826228682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d181a4517c90f8b47be8b7ee56558224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaltImage: {fileID: 21300000, guid: 670450fe57c1e85419387ab254edd7d2, type: 3}
+  pressedImage: {fileID: 21300000, guid: 66fcedfbb3f770e41b812b646cb06198, type: 3}
 --- !u!50 &6731319844826228679
 Rigidbody2D:
   serializedVersion: 4
@@ -1510,6 +1701,7 @@ MonoBehaviour:
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
+  bubbleSwitch: {fileID: 0}
   destroySound: {fileID: 0}
   MouseUI: {fileID: 0}
 --- !u!1 &6731319845088372482
@@ -1522,6 +1714,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6731319845088372733}
   - component: {fileID: 6731319845088372732}
+  - component: {fileID: 2417459983283347950}
   - component: {fileID: 6731319845088372734}
   - component: {fileID: 6731319845088372729}
   m_Layer: 0
@@ -1598,6 +1791,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2417459983283347950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731319845088372482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d181a4517c90f8b47be8b7ee56558224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaltImage: {fileID: 21300000, guid: fe08c38ebf5f2484096558aedb10ed8e, type: 3}
+  pressedImage: {fileID: 21300000, guid: 4f06774b817dcba4cab93aedc5c70afd, type: 3}
 --- !u!50 &6731319845088372734
 Rigidbody2D:
   serializedVersion: 4
@@ -1636,6 +1843,7 @@ MonoBehaviour:
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
+  bubbleSwitch: {fileID: 0}
   destroySound: {fileID: 0}
   MouseUI: {fileID: 0}
 --- !u!1 &6731319845155343100
@@ -1650,6 +1858,8 @@ GameObject:
   - component: {fileID: 6731319845155343102}
   - component: {fileID: -410874247195286836}
   - component: {fileID: 4920861801913857877}
+  - component: {fileID: 8339323577654064391}
+  - component: {fileID: 7213662582617511911}
   m_Layer: 0
   m_Name: myBubble
   m_TagString: bubble
@@ -1725,6 +1935,7 @@ MonoBehaviour:
   spawnInterval: 1
   minSpeed: 6
   maxSpeed: 8
+  bubbleSwitch: {fileID: 0}
   destroySound: {fileID: 0}
   MouseUI: {fileID: 0}
 --- !u!114 &-410874247195286836
@@ -1754,6 +1965,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c61b40f58c6a98b42bf8c6b7030e0899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8339323577654064391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731319845155343100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d181a4517c90f8b47be8b7ee56558224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaltImage: {fileID: 0}
+  pressedImage: {fileID: 0}
+--- !u!114 &7213662582617511911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731319845155343100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27688027b0b461f4f8e4288747e906a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroySound: {fileID: 0}
 --- !u!1 &6731319845369678200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1764,6 +2002,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6731319845369678203}
   - component: {fileID: 6731319845369678202}
+  - component: {fileID: 7177164549012329422}
   - component: {fileID: 6731319845369678197}
   - component: {fileID: 6731319845369678199}
   m_Layer: 0
@@ -1840,6 +2079,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7177164549012329422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731319845369678200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d181a4517c90f8b47be8b7ee56558224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaltImage: {fileID: 21300000, guid: c1ea2fd0264eeb6419dd9a115f4189ee, type: 3}
+  pressedImage: {fileID: 21300000, guid: 66fcedfbb3f770e41b812b646cb06198, type: 3}
 --- !u!50 &6731319845369678197
 Rigidbody2D:
   serializedVersion: 4
@@ -1878,6 +2131,7 @@ MonoBehaviour:
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
+  bubbleSwitch: {fileID: 0}
   destroySound: {fileID: 0}
   MouseUI: {fileID: 0}
 --- !u!1 &7245879617366610504
@@ -1890,6 +2144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5209945700616483251}
   - component: {fileID: 8108479168520971677}
+  - component: {fileID: 3556106241866053434}
   - component: {fileID: 6489205682055751934}
   - component: {fileID: 865232453850188070}
   m_Layer: 0
@@ -1966,6 +2221,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3556106241866053434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7245879617366610504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d181a4517c90f8b47be8b7ee56558224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaltImage: {fileID: 21300000, guid: f652184d9207a7b4584b5f2da450e765, type: 3}
+  pressedImage: {fileID: 21300000, guid: 4f06774b817dcba4cab93aedc5c70afd, type: 3}
 --- !u!50 &6489205682055751934
 Rigidbody2D:
   serializedVersion: 4
@@ -2004,6 +2273,7 @@ MonoBehaviour:
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
+  bubbleSwitch: {fileID: 0}
   destroySound: {fileID: 0}
   MouseUI: {fileID: 0}
 --- !u!1 &7730116903951077208
@@ -2016,6 +2286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6945189060617775272}
   - component: {fileID: 1456160092755646962}
+  - component: {fileID: 5648649601805712995}
   - component: {fileID: 5013667982981292670}
   - component: {fileID: 2165180643653457544}
   m_Layer: 0
@@ -2092,6 +2363,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5648649601805712995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7730116903951077208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d181a4517c90f8b47be8b7ee56558224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaltImage: {fileID: 21300000, guid: 183dd9222dfe63a4cb0f67c5b264fd14, type: 3}
+  pressedImage: {fileID: 21300000, guid: 4f06774b817dcba4cab93aedc5c70afd, type: 3}
 --- !u!50 &5013667982981292670
 Rigidbody2D:
   serializedVersion: 4
@@ -2130,6 +2415,7 @@ MonoBehaviour:
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
+  bubbleSwitch: {fileID: 0}
   destroySound: {fileID: 0}
   MouseUI: {fileID: 0}
 --- !u!1 &7777776584588278222
@@ -2142,6 +2428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1855337342896016663}
   - component: {fileID: 6303676924984695211}
+  - component: {fileID: 4838262996844781417}
   - component: {fileID: 3930733052533168657}
   - component: {fileID: 9019349145327896356}
   m_Layer: 0
@@ -2218,6 +2505,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4838262996844781417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7777776584588278222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d181a4517c90f8b47be8b7ee56558224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaltImage: {fileID: 21300000, guid: c31aef85dbe7d7340bd8e0597cf1d6cc, type: 3}
+  pressedImage: {fileID: 21300000, guid: 66fcedfbb3f770e41b812b646cb06198, type: 3}
 --- !u!50 &3930733052533168657
 Rigidbody2D:
   serializedVersion: 4
@@ -2256,6 +2557,7 @@ MonoBehaviour:
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
+  bubbleSwitch: {fileID: 0}
   destroySound: {fileID: 0}
   MouseUI: {fileID: 0}
 --- !u!1 &8693099620162623233
@@ -2268,6 +2570,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8856551612613467993}
   - component: {fileID: 6665656774625015627}
+  - component: {fileID: 3060326831673558158}
   - component: {fileID: 770508763732571259}
   - component: {fileID: 2137296879667458770}
   m_Layer: 0
@@ -2344,6 +2647,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3060326831673558158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8693099620162623233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d181a4517c90f8b47be8b7ee56558224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaltImage: {fileID: 21300000, guid: 11b513c66bb307b4cb926303043ee12d, type: 3}
+  pressedImage: {fileID: 21300000, guid: 6b1ecf7133c2883468a53803032f3f65, type: 3}
 --- !u!50 &770508763732571259
 Rigidbody2D:
   serializedVersion: 4
@@ -2382,5 +2699,6 @@ MonoBehaviour:
   spawnInterval: 1
   minSpeed: 1
   maxSpeed: 3
+  bubbleSwitch: {fileID: 0}
   destroySound: {fileID: 0}
   MouseUI: {fileID: 0}

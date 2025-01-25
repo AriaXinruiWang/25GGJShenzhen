@@ -13,24 +13,28 @@ public class BubbleSpawner : MonoBehaviour
     public float maxSpeed = 3f; // 气泡最大移动速度
     // private float timeElapsed = 0.0f; // 游戏时间累计
     private float decreaseRate = 0.01f; // 生成间隔减少速率
-    private float minSpawnInterval = 0.2f; // 最小生成间隔
+    private float minSpawnInterval = 0.6f; // 最小生成间隔
     private float timeSinceLastSpawn = 0.0f; // 距离上次生成的时间、
     public event Action OnBubbleSpawningStarted; // 气泡生成开始事件
+    // public bubbleswitch bubbleSwitch;
 
     private Camera mainCamera;
     public AudioClip destroySound;
     public Image MouseUI;
+    public Sprite pressedImage; // 按下时的图片
+
 
     void Start()
     {
         mainCamera = Camera.main;
-        StartCoroutine(StartSpawningAfterDelay(8f)); // 10秒后开始生成气泡
+        StartCoroutine(StartSpawningAfterDelay(10f)); // 10秒后开始生成气泡
+        Debug.Log(" 10秒后开始生成气泡");
     }
 
 
     IEnumerator StartSpawningAfterDelay(float delay)
     {
-        yield return new WaitForSeconds(delay); // 等待 delay 秒
+        yield return new WaitForSeconds(10f); // 等待 delay 秒
         StartCoroutine(SpawnBubbles()); // 开始生成气泡
         // 触发气泡生成开始事件
          OnBubbleSpawningStarted?.Invoke();
@@ -92,13 +96,26 @@ public class BubbleSpawner : MonoBehaviour
             // BubbleCollisionHandler bubbleCollisionHandler = bubble.AddComponent<BubbleCollisionHandler>();
             // bubbleCollisionHandler.OnCollisionEnter2D+= HandleBubbleCollision;
         }
-
-
+       
         // 添加点击事件
         if (!bubble.TryGetComponent<BubbleClickHandler>(out _))
-        {
+        {   
             bubble.AddComponent<BubbleClickHandler>();
+            Debug.Log("添加点击事件");
+             // 执行 BubbleSwitch 的逻辑
+            
         }
+
+        // 添加 bubbleswitch 组件并设置 pressedImage
+        bubbleswitch bubbleSwitch = bubble.GetComponent<bubbleswitch>();
+        if (bubbleSwitch == null)
+        {
+            bubbleSwitch = bubble.AddComponent<bubbleswitch>();
+        }
+        bubbleSwitch.pressedImage = pressedImage; // 设置按下时的图片
+             Debug.Log("设置按下时的图片BubbleSpawner中");
+
+       
     }
 
     private void HandleBubbleCollision(GameObject bubblePrefab)
@@ -112,34 +129,35 @@ public class BubbleSpawner : MonoBehaviour
             if (!bubblePrefab.TryGetComponent<DestroyOffscreen>(out _))
             {
                 bubblePrefab.AddComponent<DestroyOffscreen>();
+                
             }
         }
     }
 
-    // 生成 BossBubble
-    public void SpawnBossBubbleOnMiss()
-    {
-        if (BossBubblePrefab == null)
-        {
-            Debug.Log("BossBubblePrefab is not assigned!");
-            return;
-        }
+    // // 生成 BossBubble
+    // public void SpawnBossBubbleOnMiss()
+    // {
+    //     if (BossBubblePrefab == null)
+    //     {
+    //         Debug.Log("BossBubblePrefab is not assigned!");
+    //         return;
+    //     }
 
-        // 生成 BossBubble
-        GameObject bossBubble = Instantiate(BossBubblePrefab, GetRandomSpawnPosition(), Quaternion.identity);
+    //     // 生成 BossBubble
+    //     GameObject bossBubble = Instantiate(BossBubblePrefab, GetRandomSpawnPosition(), Quaternion.identity);
 
-        // // 设置 BossBubble 的 tag
-        // bossBubble.tag = "BossBubble";
+    //     // // 设置 BossBubble 的 tag
+    //     // bossBubble.tag = "BossBubble";
 
-        // 设置 BossBubble 的移动方向和速度
-        SetBubbleMovement(bossBubble, GetMoveDirection(bossBubble.transform.position),UnityEngine.Random.Range(minSpeed, maxSpeed));
+    //     // 设置 BossBubble 的移动方向和速度
+    //     SetBubbleMovement(bossBubble, GetMoveDirection(bossBubble.transform.position),UnityEngine.Random.Range(minSpeed, maxSpeed));
 
-        // 添加点击事件
-        if (!bossBubble.TryGetComponent<BubbleClickHandler>(out _))
-        {
-            bossBubble.AddComponent<BubbleClickHandler>();
-        }
-    }
+    //     // 添加点击事件
+    //     if (!bossBubble.TryGetComponent<BubbleClickHandler>(out _))
+    //     {
+    //         bossBubble.AddComponent<BubbleClickHandler>();
+    //     }
+    // }
 
     // 设置气泡的移动逻辑
     void SetBubbleMovement(GameObject bubble, Vector2 moveDirection, float speed)
