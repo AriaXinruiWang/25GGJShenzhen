@@ -23,8 +23,8 @@ public class mouthController : MonoBehaviour
         transform.position = position;
         Debug.Log("Position set.");
 
-        transform.localScale = Vector3.one; // 重置缩放
-        Debug.Log("Scale reset to (1, 1, 1).");
+        // transform.localScale = Vector3.one; // 重置缩放
+        // Debug.Log("Scale reset to (1, 1, 1).");
 
         transform.rotation = Quaternion.identity; // 重置旋转
         Debug.Log("Rotation reset to identity.");
