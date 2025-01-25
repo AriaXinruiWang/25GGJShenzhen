@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     public BosseyeController bosseyeController;
     public chopboardController ChopboardController;
     public mouthController mouth;
+    public cutSoundController soundController; // 引用cutSoundController实例切泡泡
     
 
 
@@ -282,6 +283,16 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("No mouths to spawn."); // 输出无需生成嘴巴
         }   
+        
+        // 播放切泡泡音效
+        if (soundController != null)
+        {   Debug.Log("Playing hit sound..."); // 添加调试信息
+            soundController.PlayHitSound();
+        }
+        else
+        {
+            Debug.LogWarning("cutSoundController is not assigned in GameManager.");
+        }
     }
 
     // 音符失误的处理
